@@ -1,0 +1,346 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-color: #080808;
+  --card-bg: #171719;
+  --text-primary: #f5f5f7;
+  --text-secondary: #a1a1a6;
+  --accent-blue: #2997ff;
+  --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+  --card-hover-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.47059;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Apple 經典半透明磨砂導覽列 */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  padding: 1rem;
+  background-color: rgba(8, 8, 8, 0.85);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav a {
+  color: var(--text-primary);
+  opacity: 0.8;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  transition: opacity 0.2s ease;
+}
+
+nav a:hover {
+  opacity: 1;
+}
+
+/* 各分頁大區塊 */
+.page-section {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 1.5rem;
+}
+
+.container {
+  max-width: 980px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Apple 標題系統 */
+.magazine-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.issue-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--text-primary);
+  line-height: 1.08349;
+}
+
+h2 {
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  font-weight: 600;
+  letter-spacing: -0.003em;
+  color: var(--text-primary);
+}
+
+/* 第一頁：自我介紹（Apple 雙欄圖文卡片） */
+.editorial-profile {
+  background: var(--card-bg);
+  border-radius: 18px;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.editorial-profile:hover {
+  box-shadow: var(--card-hover-shadow);
+}
+
+.editorial-img-box {
+  width: 100%;
+  height: 420px;
+  background-color: #222226;
+  overflow: hidden;
+}
+
+.editorial-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.editorial-content {
+  padding: 3rem 3.5rem;
+}
+
+.editorial-content h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.015em;
+}
+
+.editorial-content ul {
+  list-style: none;
+}
+
+.editorial-content li {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.2rem;
+  line-height: 1.5;
+}
+
+.editorial-content strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* 第二頁：作品集（Apple 產品陣列卡片） */
+.magazine-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.mag-card {
+  background: var(--card-bg);
+  border-radius: 18px;
+  padding: 1.5rem;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.mag-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+.mag-img {
+  width: 100%;
+  height: 240px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #222226;
+  margin-bottom: 1.2rem;
+}
+
+.mag-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.mag-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.01em;
+}
+
+.mag-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* 第三 & 四頁：Apple 大型 Showcase 大框 */
+.feature-box {
+  background: var(--card-bg);
+  border-radius: 18px;
+  box-shadow: var(--card-shadow);
+  padding: 3.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.anime-image-frame {
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.anime-image-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.idol-image-frame {
+  width: 100%;
+}
+
+.idol-image-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.idol-feature-box {
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.feature-box:hover {
+  box-shadow: var(--card-hover-shadow);
+}
+
+.feature-box h3 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  margin-bottom: 0.5rem;
+}
+
+.feature-box p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.song-feature-box {
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.song-info {
+  text-align: center;
+}
+
+.youtube-thumbnail {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 12px;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  background: #eee;
+}
+
+.youtube-thumbnail img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.youtube-thumbnail:hover img {
+  transform: scale(1.04);
+}
+
+.youtube-play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  width: 58px;
+  height: 40px;
+  place-items: center;
+  border-radius: 10px;
+  background: #e62117;
+  color: #fff;
+  font-size: 1.25rem;
+  transform: translate(-50%, -50%);
+}
+
+footer {
+  text-align: center;
+  padding: 4rem 1.5rem;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 響應式手持裝置適應 */
+@media (max-width: 768px) {
+  .editorial-profile, .magazine-grid, .feature-box {
+    grid-template-columns: 1fr;
+  }
+  .editorial-content {
+    padding: 2rem;
+  }
+  .page-section {
+    padding: 3rem 1rem;
+  }
+}
